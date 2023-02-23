@@ -230,7 +230,7 @@ body {
 }
 
 .section-text {
-        font-style: 6px;
+        font-size: var(--fs-6);
 }
 
 .img-holder {
@@ -521,5 +521,172 @@ body {
 
 /* ---------------------------------------
                 #HERO
+----------------------------------------*/
+
+.hero .play-btn {
+        display: none;
+}
+
+.hero {
+        padding-block-start: 90px;
+        background-position: left;
+}
+
+.hero .container {
+        display: grid;
+        gap: 20px;
+}
+
+.hero-title::after {
+        bottom: -15px;
+        left: 0;
+        width: 70px;
+        height: 5px;
+        background-color: var(--maximum-blue-green);
+}
+
+.hero-text {
+        margin-block: 40px;
+}
+
+.hero-banner {
+        max-width: 300px;
+        margin-inline: auto;
+}
+
+/* ---------------------------------------
+                #FEATURE
+----------------------------------------*/
+
+.feature {
+        padding-block: 0;
+}
+
+.feature-card {
+        background-color: var(--oxford-blue);
+        padding: 15px 25px;
+        display: flex;
+        align-items: center;
+        gap: 25px;
+}
+
+.feature-card .card-icon {
+        width: 60px;
+        flex-shrink: 0;
+}
+
+.feature-card:hover .card-icon {
+        animation: shake-lr 0.5s var(--cubic-anim) both;
+}
+
+@keyframes shake-lr {
+        0%,
+        100% {
+                transform: rotate(0);
+                transform-origin: 50% 50%;
+        }
+
+        10%,
+        90% {
+                transform: rotate(4deg);
+        }
+
+        20%,
+        40%,
+        60% {
+                transform: rotate(-6deg);
+        }
+
+        30%,
+        50%,
+        70% {
+                transform: rotate(6deg);
+        }
+
+        80% {
+                transform: rotate(-4deg);
+        }
+}
+
+.feature-card .card-title {
+        margin-block-end: 5px;
+}
+
+/* ---------------------------------------
+                #FEATURED COLLECTION
+----------------------------------------*/
+
+.featured .section-text {
+        margin-block: 10px 50px;
+}
+
+.featured .grid-list {
+        gap: 10px;
+}
+
+/* ---------------------------------------
+                #OFFER
+----------------------------------------*/
+
+.offer {
+        text-align: center;
+}
+
+.offer .section-subtitle {
+        font-size: var(--fs-3);
+}
+
+.offer .section-title {
+        --fs-2: 3rem;
+        color: var(--maximum-blue-green);
+        margin-block: 20px 30px;
+}
+
+.countdown-list {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin-block: 25px 40px;
+}
+
+.countdown-time {
+        font-size: var(--fs-5);
+        margin-block-end: 8px;
+}
+
+.offer .btn {
+        padding-block: 12px;
+        margin-inline: auto;
+}
+
+/* ---------------------------------------
+                #POPULAR
+----------------------------------------*/
+
+.popular .section-text {
+        margin-block: 10px 40px;
+}
+
+.filter-list {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 5px 10px;
+        margin-block-end: 40px;
+}
+
+.filter-btn {
+        font-family: var(--ff-jost);
+        font-size: var(--fs-5);
+        padding: 5px 20px;
+        transition: var(--transition-1);
+}
+
+.filter-btn.active {
+        color: var(--maximum-blue-green);
+}
+
+/* ---------------------------------------
+                #BLOG
 ----------------------------------------*/
 

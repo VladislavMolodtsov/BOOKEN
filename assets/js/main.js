@@ -3,7 +3,10 @@
 window.addEventListener('DOMContentLoaded', () => {
 
 
-        // Add event on elements
+        /* 
+                ADD EVENT ON ELEMENTS 
+        */
+
         const addEventOnElem = function(elem, type, callback) {
                 
                 if (elem.length > 1) {
@@ -12,13 +15,19 @@ window.addEventListener('DOMContentLoaded', () => {
                                 elem[i].addEventListener(type, callback);
                         }
 
+                } else {
+
+                        elem.addEventListener(type, callback);
+
                 }
-                elem.addEventListener(type, callback);
 
         };
 
 
-        // Navbar Toggle
+        /*
+                NAVBAR TOGGLE
+        */
+
         const navbar = document.querySelector('[data-navbar]');
         const navTogglers = document.querySelectorAll('[data-nav-toggler]');
         const overlay = document.querySelector('[data-overlay]');
@@ -33,7 +42,9 @@ window.addEventListener('DOMContentLoaded', () => {
         addEventOnElem(navTogglers, 'click', togglerNavbar);
 
         
-        // action header & back top btn when window scroll down to 100px
+        /*
+                ACTION HEADER & BACK TOP BTN WHEN WINDOW SCROLL DOWN TO 100PX
+        */
 
         const header = document.querySelector('[data-header]');
         // const backTopBtn = document.querySelector('[data-back-top-btn]');
@@ -52,4 +63,51 @@ window.addEventListener('DOMContentLoaded', () => {
 
         addEventOnElem(window, 'scroll', activeElemOnScroll);
 
+
+        /*
+                FILTER FUNCTIONALITY
+        */
+
+        const filterBtn = document.querySelectorAll("[data-filter-btn]"); // filterBtn
+        const filterItems = document.querySelectorAll("[data-filter]"); // filter
+
+        function hideTab() {
+                filterBtn.forEach(item => {
+                        item.classList.remove('active');
+                });
+        }
+        showTab();
+        function showTab(i = 0) {
+
+                if (filterBtn[i].dataset.filterBtn === 'all') {
+
+                        filterItems.forEach(item => {
+
+                                item.style.display = 'block';
+                                filterBtn[i].classList.add('active');
+                
+                        });
+                        
+                } else {
+                        filterItems.forEach(item => {
+
+                                if (filterBtn[i].dataset.filterBtn === item.dataset.filter) {
+                                        item.style.display = 'block';
+                                        filterBtn[i].classList.add("active");
+                                } else {
+                                        item.style.display = 'none';
+                                        filterBtn[i].classList.remove('active');
+                                }
+                
+                        }); 
+                }
+
+        }
+
+        filterBtn.forEach((item, i) => {
+                item.addEventListener('click', () => {
+                        hideTab();
+                        showTab(i);
+                });
+        });
 });
