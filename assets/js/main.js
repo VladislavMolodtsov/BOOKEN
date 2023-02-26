@@ -47,18 +47,20 @@ window.addEventListener('DOMContentLoaded', () => {
         */
 
         const header = document.querySelector('[data-header]');
-        // const backTopBtn = document.querySelector('[data-back-top-btn]');
+        const backTopBtn = document.querySelector('[data-back-top-btn]');
 
         const activeElemOnScroll = function() {
 
                 if (window.scrollY > 100) {
 
                         header.classList.add('active');
-                        // backTopBtn.classList.add('active');
+                        backTopBtn.classList.add('active');
 
+                } else {
+                        header.classList.remove('active');
+                        backTopBtn.classList.remove('active');
                 }
-                header.classList.remove('active');
-                // backTopBtn.classList.remove('active');
+                
         }
 
         addEventOnElem(window, 'scroll', activeElemOnScroll);
@@ -93,7 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
                                 if (filterBtn[i].dataset.filterBtn === item.dataset.filter) {
                                         item.style.display = 'block';
-                                        filterBtn[i].classList.add("active");
+                                        filterBtn[i].classList.add('active');
                                 } else {
                                         item.style.display = 'none';
                                         filterBtn[i].classList.remove('active');
@@ -110,4 +112,5 @@ window.addEventListener('DOMContentLoaded', () => {
                         showTab(i);
                 });
         });
+
 });
